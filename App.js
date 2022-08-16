@@ -10,6 +10,7 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Provider as AuthProvider} from './src/context/AuthContext';
+import {setNavigator} from './src/navigationRef';
 
 LogBox.ignoreLogs(['Remote debugger']);
 
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({});
 export default () => {
   return (
     <AuthProvider>
-      <App />
+      <App ref={(navigator = setNavigator(navigator))} />
     </AuthProvider>
   );
 };
