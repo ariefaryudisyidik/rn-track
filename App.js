@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {LogBox, StyleSheet} from 'react-native';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -10,6 +10,8 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Provider as AuthProvider} from './src/context/AuthContext';
+
+LogBox.ignoreLogs(['Remote debugger']);
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -44,13 +46,13 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Signup"
+          name="LoginFlow"
           component={LoginFlow}
           options={{headerShown: false}}
         />
         <Stack.Group>
           <Stack.Screen
-            name="TrackList"
+            name="MainFlow"
             component={MainFlow}
             options={{headerShown: false}}
           />
