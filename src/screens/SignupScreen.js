@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {Button, Text, Input} from '@rneui/base';
 import React, {useState, useContext} from 'react';
 import Spacer from '../components/Spacer';
@@ -35,6 +35,9 @@ const SignUpScreen = ({navigation}) => {
       <Spacer>
         <Button title="Sign Up" onPress={() => signup({email, password})} />
       </Spacer>
+      <TouchableOpacity>
+        <Text style={styles.link}>Already Have Account? Sign In instead</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -51,5 +54,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'red',
     marginLeft: 15,
+  },
+  link: {
+    color: 'blue',
   },
 });
