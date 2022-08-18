@@ -26,7 +26,11 @@ const LoginFlow = () => {
           component={SignupScreen}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="Signin" component={SigninScreen} />
+        <Stack.Screen
+          name="Signin"
+          component={SigninScreen}
+          options={{headerShown: false}}
+        />
       </Stack.Group>
     </Stack.Navigator>
   );
