@@ -1,11 +1,15 @@
 import {StyleSheet, View} from 'react-native';
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Context as AuthContext} from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink';
 
-const SignUpScreen = () => {
-  const {state, signup} = useContext(AuthContext);
+const SignUpScreen = ({navigation}) => {
+  const {state, signup, clearErrorMessage} = useContext(AuthContext);
+
+  useEffect(() => {
+    return navigation.addListener('onWillBlur', {clearErrorMessage});
+  }, []);
 
   return (
     <View style={styles.container}>
